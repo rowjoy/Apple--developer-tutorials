@@ -10,10 +10,26 @@ import SwiftUI
 struct ScrumsView: View {
     var scrum: [DailyScrum]
     var body: some View {
-        List (scrum) { scrum in
-            CardView(scrum: scrum)
+        NavigationStack {
+            List (scrum) { scrum in
+                NavigationLink(destination: DetailView(scrum: scrum)){
+                    CardView(scrum: scrum)
+                       
+                }
                 .listRowBackground(scrum.theme.mainColor)
+            }
+            .navigationTitle("Daily Scrum")
+            .toolbar{
+                Button(action: {
+                    
+                }){
+                    Image(systemName: "plus")
+                }
+                .accessibilityLabel(Text("Add New Scrum"))
+            }
+            
         }
+
     }
 }
 

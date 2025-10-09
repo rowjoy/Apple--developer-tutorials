@@ -15,6 +15,11 @@ struct ScrumdingerApp: App {
 
 
 
-//https://developer.apple.com/tutorials/app-dev-training/displaying-data-in-a-list
+//  https://developer.apple.com/tutorials/app-dev-training/displaying-data-in-a-list
+// Day - 2 https://developer.apple.com/tutorials/app-dev-training/creating-a-navigation-hierarchy
+// Day - 3 https://developer.apple.com/tutorials/app-dev-training/creating-the-edit-view
+
+
+
 
 
