@@ -8,20 +8,29 @@
 import SwiftUI
 
 struct DetailEditView: View {
-    @State private var scrum: DailyScrum = .emptyScrum
+    @Binding var scrum: DailyScrum
     @State private var attendeeName = ""
+    
+    
+    let values = [5.0, 10.0, 15.0, 20.0];
+    @State private var index: Double = 0
     
     var body: some View {
         Form {
             Section(header: Text("Meeting Info".uppercased(with: .autoupdatingCurrent))){
                 TextField("Title", text: $scrum.title)
                 HStack {
-                    Slider(value: $scrum.lengthInMinutesAsDouble,in : 5...30 , step: 1){
+                    Slider(value: $scrum.lengthInMinutesAsDouble,in : 5...20 , step: 5,){
                         Text("Length")
                     }
+                    .accessibilityValue("\(scrum.lengthInMinutes) minutes")
                     Spacer()
                     Text("\(scrum.lengthInMinutes) minutes")
+                        .accessibilityHidden(true)
                 }
+                ThemePicker(selection: $scrum.theme)
+                                
+                
             }
             
             Section (header: Text("Attendees".uppercased(with: .autoupdatingCurrent))){
@@ -45,6 +54,7 @@ struct DetailEditView: View {
                         }
                     }){
                         Image(systemName: "plus.circle.fill")
+                            .accessibilityLabel("Add Attendee")
                     }
                     .disabled(attendeeName.isEmpty)
                     
@@ -56,5 +66,6 @@ struct DetailEditView: View {
 }
 
 #Preview {
-    DetailEditView()
+    @Previewable @State var scrum = DailyScrum.sampleData[0]
+    DetailEditView(scrum: $scrum)
 }
