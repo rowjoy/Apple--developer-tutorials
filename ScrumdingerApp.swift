@@ -23,6 +23,12 @@ struct ScrumdingerApp: App {
 // 5 - https://developer.apple.com/tutorials/app-dev-training/passing-data-with-bindings
 
 // 6 - https://developer.apple.com/tutorials/app-dev-training/passing-data-with-bindings
+// 7 - https://developer.apple.com/tutorials/app-dev-training/making-classes-observable
+// 8 - https://developer.apple.com/tutorials/app-dev-training/managing-state-and-life-cycle
+
+
+
+
 
 
 
